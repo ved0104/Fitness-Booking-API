@@ -1,4 +1,3 @@
-```markdown
 # Fitness Booking API
 
 ## 🧠 Objective
@@ -14,7 +13,7 @@ This project assesses backend development fundamentals, API design, coding best 
 - Language: Python  
 - Framework: FastAPI  
 - Database: MongoDB  
-- ORM/Tools: Motor async driver for MongoDB (No ORM used)  
+- ORM/Tools: Motor async driver for MongoDB
 - Authentication: JWT Token-based authentication  
 
 ---
@@ -199,11 +198,11 @@ curl -X GET "http://127.0.0.1:8000/api/v1/bookings" \
 
 ### Swagger UI Homepage
 
-![Swagger UI screenshot](./screenshots/swagger-ui-homepage.png)
+![Swagger UI screenshot](./static/swagger-ui-homepage.png)
 
 ### API Documentation & Testing
 
-![Swagger UI docs](./screenshots/swagger-ui-docs.png)
+![Swagger UI docs](./static/swagger-ui-docs.png)
 
 *(Add your actual screenshots under `/screenshots` folder or similar)*
 
