@@ -77,9 +77,8 @@ fitness-booking-api/
 │   ├── middleware/             # Middleware for logging, CORS, etc.
 │   └── main.py                 # FastAPI app instance and startup
 │
-├── tests/                      # Unit and integration tests (optional)
 ├── requirements.txt            # Python dependencies
-├── .env                       # Environment variable config
+├── .env                        # Environment variable config
 └── README.md                   # This documentation file
 ```
 
@@ -95,7 +94,7 @@ fitness-booking-api/
 ### Installation Steps
 
 ```
-git clone https://github.com/your-username/fitness-booking-api.git
+git clone https://github.com/ved0104/Fitness-Booking-API.git
 cd fitness-booking-api
 
 python -m venv env
@@ -214,17 +213,5 @@ curl -X GET "http://127.0.0.1:8000/api/v1/bookings" \
 - JWT token authentication secures protected endpoints.  
 - Passwords are hashed using bcrypt via Passlib.  
 - Error handling covers missing fields, overbooking, invalid requests, and authentication failures.  
-- Bonus includes basic logging and Swagger auto-generated docs.
-
----
-
-## 🧪 Testing
-
-- Write tests inside the `tests/` folder with `pytest`.  
-- Run tests using:  
-```
-pytest
-```
-
-
+- Includes basic logging and Swagger auto-generated docs.
 ---
