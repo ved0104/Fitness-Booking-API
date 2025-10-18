@@ -198,11 +198,11 @@ curl -X GET "http://127.0.0.1:8000/api/v1/bookings" \
 
 ### Swagger UI Homepage
 
-![Swagger UI screenshot](./static/swagger-ui-homepage.png)
+![Swagger UI screenshot](app/static/swagger-ui-homepage.png)
 
 ### API Documentation & Testing
 
-![Swagger UI docs](./static/swagger-ui-docs.png)
+![Swagger UI docs](app/static/swagger-ui-docs.png)
 
 *(Add your actual screenshots under `/screenshots` folder or similar)*
 
