@@ -1,5 +1,3 @@
-# app/services/class_service.py
-
 from typing import List
 from fastapi import HTTPException, status, Depends
 from motor.motor_asyncio import AsyncIOMotorDatabase
@@ -12,14 +10,12 @@ from app.utils.timezone import get_ist_now, parse_datetime_to_ist
 
 
 class ClassService:
-    """Service for handling fitness class operations"""
     
     def __init__(self, db: AsyncIOMotorDatabase):
         self.db = db
         self.classes_collection = db.fitness_classes
     
     async def create_class(self, class_data: FitnessClassCreate, current_user: dict) -> FitnessClassResponse:
-        """Create a new fitness class"""
         # Parse and convert datetime to IST
         try:
             class_datetime = parse_datetime_to_ist(class_data.dateTime)
@@ -64,7 +60,6 @@ class ClassService:
         )
     
     async def get_upcoming_classes(self) -> List[FitnessClassResponse]:
-        """Get all upcoming fitness classes"""
         current_time = get_ist_now()
         
         # Query for classes scheduled in the future
@@ -88,7 +83,6 @@ class ClassService:
         ]
     
     async def get_class_by_id(self, class_id: str) -> dict:
-        """Get a class by its ID"""
         try:
             obj_id = ObjectId(class_id)
         except Exception:
@@ -109,5 +103,4 @@ class ClassService:
 
 
 def get_class_service(db: AsyncIOMotorDatabase = Depends(get_database)) -> ClassService:
-    """Dependency to get class service instance"""
     return ClassService(db)

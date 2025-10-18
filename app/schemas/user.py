@@ -1,12 +1,9 @@
-# app/schemas/user.py
-
 from pydantic import BaseModel, EmailStr, Field
 from typing import Optional
 from datetime import datetime
 
 
 class UserSignup(BaseModel):
-    """Schema for user registration"""
     name: str = Field(..., min_length=2, max_length=100, description="User's full name")
     email: EmailStr = Field(..., description="User's email address")
     password: str = Field(..., min_length=6, max_length=72, description="User's password (min 6 characters)")
@@ -22,7 +19,6 @@ class UserSignup(BaseModel):
 
 
 class UserLogin(BaseModel):
-    """Schema for user login"""
     email: EmailStr
     password: str
     
@@ -36,7 +32,6 @@ class UserLogin(BaseModel):
 
 
 class UserResponse(BaseModel):
-    """Schema for user response"""
     id: str
     name: str
     email: EmailStr
@@ -56,7 +51,6 @@ class UserResponse(BaseModel):
 
 
 class Token(BaseModel):
-    """Schema for JWT token response"""
     access_token: str
     token_type: str
     
@@ -70,5 +64,4 @@ class Token(BaseModel):
 
 
 class TokenData(BaseModel):
-    """Schema for token payload data"""
     email: Optional[str] = None

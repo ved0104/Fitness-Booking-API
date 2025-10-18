@@ -1,12 +1,9 @@
-# app/schemas/fitness_class.py
-
 from pydantic import BaseModel, Field
 from datetime import datetime
 from typing import Optional
 
 
 class FitnessClassCreate(BaseModel):
-    """Schema for creating a fitness class"""
     name: str = Field(..., min_length=2, max_length=100, description="Class name (e.g., Yoga Flow, HIIT)")
     dateTime: str = Field(..., description="Class date and time in ISO format (e.g., 2025-06-15T10:00:00Z)")
     instructor: str = Field(..., min_length=2, max_length=100, description="Instructor name")
@@ -24,7 +21,6 @@ class FitnessClassCreate(BaseModel):
 
 
 class FitnessClassResponse(BaseModel):
-    """Schema for fitness class response"""
     id: str
     name: str
     dateTime: datetime
@@ -48,7 +44,6 @@ class FitnessClassResponse(BaseModel):
 
 
 class FitnessClassUpdate(BaseModel):
-    """Schema for updating a fitness class"""
     name: Optional[str] = Field(None, min_length=2, max_length=100)
     dateTime: Optional[str] = None
     instructor: Optional[str] = Field(None, min_length=2, max_length=100)

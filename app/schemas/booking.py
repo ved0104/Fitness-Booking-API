@@ -1,12 +1,9 @@
-# app/schemas/booking.py
-
 from pydantic import BaseModel, EmailStr, Field
 from datetime import datetime
 from typing import Optional
 
 
 class BookingCreate(BaseModel):
-    """Schema for creating a booking"""
     class_id: str = Field(..., description="ID of the fitness class to book")
     client_name: str = Field(..., min_length=2, max_length=100, description="Client name for booking")
     client_email: EmailStr = Field(..., description="Client email for booking")
@@ -22,7 +19,6 @@ class BookingCreate(BaseModel):
 
 
 class BookingResponse(BaseModel):
-    """Schema for booking response"""
     id: str
     class_id: str
     user_id: str

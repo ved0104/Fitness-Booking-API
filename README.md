@@ -204,15 +204,13 @@ curl -X GET "http://127.0.0.1:8000/api/v1/bookings" \
 
 ![Swagger UI docs](app/static/swagger-ui-docs.png)
 
-*(Add your actual screenshots under `/screenshots` folder or similar)*
-
 ---
 
 ## 📝 Notes
 
 - All date-times are stored and processed in IST (Indian Standard Time) timezone.  
 - Incoming date-time inputs with different timezones are converted to IST internally.  
-- MongoDB is used as a NoSQL database with Motor async driver (no SQL ORM).  
+- MongoDB is used as a NoSQL database with Motor async driver. 
 - JWT token authentication secures protected endpoints.  
 - Passwords are hashed using bcrypt via Passlib.  
 - Error handling covers missing fields, overbooking, invalid requests, and authentication failures.  

@@ -1,5 +1,3 @@
-# app/services/booking_service.py
-
 from typing import List
 from fastapi import HTTPException, status, Depends
 from motor.motor_asyncio import AsyncIOMotorDatabase
@@ -12,7 +10,6 @@ from app.utils.timezone import parse_datetime_to_ist, get_ist_now
 
 
 class BookingService:
-    """Service for handling booking operations"""
     
     def __init__(self, db: AsyncIOMotorDatabase):
         self.db = db
@@ -20,7 +17,6 @@ class BookingService:
         self.classes_collection = db.fitness_classes
     
     async def create_booking(self, booking_data: BookingCreate, current_user: dict) -> BookingResponse:
-        """Book a slot in a fitness class"""
         # Validate class ID format
         try:
             class_obj_id = ObjectId(booking_data.class_id)
@@ -107,7 +103,6 @@ class BookingService:
             )
     
     async def get_user_bookings(self, current_user: dict) -> List[BookingResponse]:
-        """Get all bookings for the authenticated user"""
         # Find all bookings for the user
         cursor = self.bookings_collection.find(
             {"user_id": current_user["_id"]}
@@ -145,5 +140,4 @@ class BookingService:
 
 
 def get_booking_service(db: AsyncIOMotorDatabase = Depends(get_database)) -> BookingService:
-    """Dependency to get booking service instance"""
     return BookingService(db)

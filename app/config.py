@@ -1,11 +1,8 @@
-# app/config.py
-
 from pydantic_settings import BaseSettings
 from typing import Optional
 
 
 class Settings(BaseSettings):
-    """Application configuration settings"""
     
     # MongoDB Configuration
     MONGODB_URL: str = "mongodb://localhost:27017"

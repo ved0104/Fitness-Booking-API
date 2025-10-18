@@ -1,5 +1,3 @@
-# app/routers/classes.py
-
 from fastapi import APIRouter, Depends, status
 from typing import List
 from app.schemas.fitness_class import FitnessClassCreate, FitnessClassResponse
@@ -19,17 +17,6 @@ async def create_fitness_class(
     current_user: dict = Depends(get_current_user),
     class_service: ClassService = Depends(get_class_service)
 ):
-    """
-    Create a new fitness class (Authentication required)
-    
-    - **name**: Class name (e.g., Yoga Flow, HIIT Session, Zumba)
-    - **dateTime**: Class date and time in ISO format (e.g., 2025-06-15T10:00:00Z)
-    - **instructor**: Instructor name
-    - **availableSlots**: Number of available slots (1-100)
-    
-    All times are automatically converted and stored in IST timezone.
-    The class must be scheduled for a future date/time.
-    """
     return await class_service.create_class(class_data, current_user)
 
 
@@ -37,13 +24,6 @@ async def create_fitness_class(
 async def get_upcoming_classes(
     class_service: ClassService = Depends(get_class_service)
 ):
-    """
-    Get all upcoming fitness classes
-    
-    Returns a list of all classes scheduled in the future.
-    Classes are sorted by dateTime in ascending order.
-    No authentication required - public endpoint.
-    """
     return await class_service.get_upcoming_classes()
 
 
@@ -52,14 +32,6 @@ async def get_class_by_id(
     class_id: str,
     class_service: ClassService = Depends(get_class_service)
 ):
-    """
-    Get details of a specific fitness class by ID
-    
-    - **class_id**: MongoDB ObjectId of the class
-    
-    Returns detailed information about the requested class.
-    No authentication required - public endpoint.
-    """
     fitness_class = await class_service.get_class_by_id(class_id)
     
     return FitnessClassResponse(

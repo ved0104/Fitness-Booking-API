@@ -1,5 +1,3 @@
-# app/routers/auth.py
-
 from fastapi import APIRouter, Depends, HTTPException, status
 from app.schemas.user import UserSignup, UserLogin, UserResponse, Token
 from app.services.auth_service import AuthService, get_auth_service
@@ -12,15 +10,6 @@ async def signup(
     user_data: UserSignup,
     auth_service: AuthService = Depends(get_auth_service)
 ):
-    """
-    Register a new user
-    
-    - **name**: User's full name (2-100 characters)
-    - **email**: User's email address (must be unique)
-    - **password**: User's password (minimum 6 characters)
-    
-    Returns the created user information (without password)
-    """
     return await auth_service.signup(user_data)
 
 

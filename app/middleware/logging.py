@@ -1,5 +1,3 @@
-# app/middleware/logging.py
-
 import logging
 import time
 from fastapi import Request
@@ -10,7 +8,6 @@ logger = logging.getLogger(__name__)
 
 
 class LoggingMiddleware(BaseHTTPMiddleware):
-    """Middleware for logging all incoming requests and responses"""
     
     async def dispatch(self, request: Request, call_next):
         # Log incoming request
@@ -29,7 +26,7 @@ class LoggingMiddleware(BaseHTTPMiddleware):
                 f"- Duration: {process_time:.3f}s"
             )
             
-            # Add custom header with processing time
+            # Custom header with processing time
             response.headers["X-Process-Time"] = str(process_time)
             
             return response
